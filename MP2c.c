@@ -5,6 +5,7 @@
 #include "MP2Ckernel.c"
 
 // TODO: Use extern to include the asm kernel
+extern float asmsdot(int n, float* vectorA, float* vectorB, float* sdot);
 
 int main () {
 	/* declare variables:
@@ -13,19 +14,20 @@ int main () {
 		float vectorB[] for VectorB
 		float pointer sdot for storing sdot of VectorA and VectorB
 	*/
-	int n;
-	float vectorA[] = {1.0, 2.0, 3.0, 4.0};
-	float vectorB[] = {5.0, 6.0, 7.0, 8.0};
-	float* sdot;
-	
+	int i, n=4;
+	float vectorA[] = {10.0, 20.0, 3.0, 40.0};
+	float vectorB[] = {50.0, 6.0, 7.0, 8.0};
+	float *sdot = (float *)malloc(sizeof(float));
 	
 	// TODO: Call C kernel and print result
 	calcsdot(n, vectorA, vectorB, sdot);
-	printf("&f", sdot);
+	printf("C Kernel\n----------------\n");
+	printf("Dot product from C: %f\n\n", *sdot);
 	
 	// TODO: Call the assembly kernel and print result
-	printf("Placeholder for calling assembly code\n");
-	printf("ASM Kernel Results\n")
+	asmsdot(n, vectorA, vectorB, sdot);
+	printf("ASM Kernel\n----------------\n");
+	printf("Dot product from ASM: %f\n\n", *sdot);
 	
 	return 0;
 }
