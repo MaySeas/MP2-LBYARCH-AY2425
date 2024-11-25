@@ -12,5 +12,4 @@ asmsdot:
         add rdx, 4
         add r8, 4
         loop L1
-    ;xor rax, rax
     ret
