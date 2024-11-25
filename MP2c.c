@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-
 // for calling the C kernel
-#include "MP2Ckernel.c"
+#include "MP2ckernel.c"
 
 extern float asmsdot(int n, float* vectorA, float* vectorB, float* sdot);
 
