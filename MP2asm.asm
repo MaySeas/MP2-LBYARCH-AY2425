@@ -13,7 +13,7 @@ asmsdot:
         movss xmm2, [r8]  ;vec b []
         mulss xmm1, xmm2
         addss xmm0, xmm1
-        add rdx, 4
+        add rdx, 4 
         add r8, 4
         
         dec r10
