@@ -14,7 +14,7 @@ int main () {
 	*/
 	int n = 4;
 	float vectorA[] = {1.0, 2.0, 3.10, 4.25};
-	float vectorB[] = {5.0, 6.0, 7.20, 8.5};
+	float vectorB[] = {5.0, 6.0, 70.20, 8.5};
 	double *ctime = (double *)malloc(sizeof(double));
 	double *asmtime = (double *)malloc(sizeof(double));
 	float *sdot = (float *)malloc(sizeof(float)); 
