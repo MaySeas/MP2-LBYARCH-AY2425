@@ -13,11 +13,11 @@ int main () {
 		float pointer sdot for storing sdot of VectorA and VectorB
 	*/
 	int n = 4;
-	float vectorA[] = {1.0, 2.0, 3.0, 4.0};
-	float vectorB[] = {5.0, 6.0, 70.0, 8.0};
-	float *sdot = (float *)malloc(sizeof(float));
+	float vectorA[] = {1.0, 2.0, 3.10, 4.25};
+	float vectorB[] = {5.0, 6.0, 70.20, 8.5};
 	double *ctime = (double *)malloc(sizeof(double)),
 		   *asmtime = (double *)malloc(sizeof(double));
+	float *sdot = (float *)malloc(sizeof(float));
 	*sdot = 0.0;
 	*ctime = 0.0;
 	*asmtime = 0.0;
@@ -26,6 +26,8 @@ int main () {
 	printf("C Kernel\n----------------\n");
 	printf("Dot product from C: %f\n", *sdot);
 	printf("Execution time: %f nanoseconds\n\n", *ctime);
+	
+	*sdot = 0.0;
 		
 	asmsdot(n, vectorA, vectorB, sdot);
 	printf("ASM Kernel\n----------------\n");
