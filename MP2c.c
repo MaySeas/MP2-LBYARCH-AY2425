@@ -14,8 +14,9 @@ int main () {
 		float pointer sdot for storing sdot of VectorA and VectorB
 	*/
 //	long long N = 4;
-	long long N = 166777216; //for 2^24
+//	long long N = 166777216; //for 2^24
 //	long long N = 1073741824; //for 2^30
+	long long N = 536970912;
 //	long long N = 1048576; // for 2^20 size arrays
 	float *vectorA;
 	vectorA = (float*)malloc(N*sizeof(*vectorA)); //vectorA
@@ -46,13 +47,14 @@ int main () {
 	PCFreq = (double)(li.QuadPart);
 	
 	// initialize arrays with the number of elements in n
-	printf("Initializing arrays...\n");
+	printf("Initializing arrays for N of %d...\n", N);
 	for (i = 0; i < N; i++) {
 		vectorA[i] = 2.0;
 		vectorB[i] = 2.0;
 	}
 	
 	for (j = 0; j < 20; j++) {
+		*sdot = 0;
 		QueryPerformanceCounter(&li);
 		start = li.QuadPart;
 		calcsdot(N, vectorA, vectorB, sdot);
