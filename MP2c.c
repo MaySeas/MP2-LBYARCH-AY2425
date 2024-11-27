@@ -4,7 +4,7 @@
 // for calling the C kernel
 #include "MP2ckernel.c"
 
-extern float asmsdot(int n, float* vectorA, float* vectorB, float* sdot);
+extern void asmsdot(int n, float* vectorA, float* vectorB, float* sdot);
 
 int main () {
 	/* declare variables:
