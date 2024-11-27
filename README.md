@@ -5,20 +5,20 @@ i.)  Comparative execution time and short analysis of the performance of the ker
 With both arrays entirely filled with the value 2.0:
 
 Vector size n = 2^20
-C average = 0.000005 ms
-Assembly average = 0.000004 ms
+
+C average = 0.000005 ms and Assembly average = 0.000004 ms
 
 Vector size n = 2^24
-C average = 0.000759 ms
-Assembly average = 0.000567
+
+C average = 0.000759 ms and Assembly average = 0.000567
 
 Vector size n = 2^29
-C average = 0.012171 ms
-Assembly average = 0.004893
+
+C average = 0.012171 ms and Assembly average = 0.004893
 
 Vector size n = 2^30
-C average = 0.005936 ms
-Assembly average = 0.003719 ms
+
+C average = 0.005936 ms and Assembly average = 0.003719 ms
 
 Overall, despite having the exact same values and similar algorithms, the assembly kernel consistently performed about 1.25, 1.34, 1.4, and 1.21 times better than the C kernel respectively in all trials when comparing the average of 20 runs for each kernel. 
 
