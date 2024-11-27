@@ -13,9 +13,10 @@ int main () {
 		float vectorB[] for VectorB
 		float pointer sdot for storing sdot of VectorA and VectorB
 	*/
-//	long long N = 166777216; //for 2^24
+//	long long N = 4;
+	long long N = 166777216; //for 2^24
 //	long long N = 1073741824; //for 2^30
-	long long N = 1048576; // for 2^20 size arrays
+//	long long N = 1048576; // for 2^20 size arrays
 	float *vectorA;
 	vectorA = (float*)malloc(N*sizeof(*vectorA)); //vectorA
 	float *vectorB;
@@ -45,19 +46,19 @@ int main () {
 	PCFreq = (double)(li.QuadPart);
 	
 	// initialize arrays with the number of elements in n
+	printf("Initializing arrays...\n");
 	for (i = 0; i < N; i++) {
 		vectorA[i] = 2.0;
 		vectorB[i] = 2.0;
 	}
 	
 	for (j = 0; j < 20; j++) {
-		*sdot = 0.0; // ensures that each run, sdot is clear
 		QueryPerformanceCounter(&li);
 		start = li.QuadPart;
 		calcsdot(N, vectorA, vectorB, sdot);
 		QueryPerformanceCounter(&li);
 		end = li.QuadPart;
-		elapse = ((double)(end-start))* 1000.0 / PCFreq;
+		elapse = ((double)(end-start)) * 1000.0 / PCFreq;
 		elapse1 = elapse1 + elapse; // get sum of all elapses for averaging later
 	}
 	
@@ -65,18 +66,16 @@ int main () {
 	printf("Dot product from C: %f\n", *sdot);
 	printf("Average execution time for 20 runs: %f ms\n\n", elapse1/20); // get average
 	
-	*sdot = 0.0; //ensures that sdot results isn't from C kernel
+	*sdot = 0.0; //ensures that sdot results aren't from C kernel
 	elapse1 = 0;
 	
 	for (j = 0; j < 20; j++) {
-		printf("sdot result in previous run: %f\n", *sdot);
 		QueryPerformanceCounter(&li);
 		start = li.QuadPart;
 		asmsdot(N, vectorA, vectorB, sdot);
-		printf("sdot result: %f\n", *sdot);
 		QueryPerformanceCounter(&li);
 		end = li.QuadPart;
-		elapse = ((double)(end-start))* 1000.0 / PCFreq;
+		elapse = ((double)(end-start)) * 1000.0 / PCFreq;
 		elapse1 = elapse1 + elapse; // get sum of all elapses for averaging later
 	}
 	
