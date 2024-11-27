@@ -2,9 +2,10 @@
 #include<stdlib.h>
 
 float calcsdot(int n, float* vectorA, float* vectorB, float* sdot) {
-	int j; //counter real
+	int j;
+	int result;
 	for (j = 0; j < n; j++) {
 		*sdot += vectorA[j] * vectorB[j];
 	}
-	return *sdot;
+	return result;
 }
